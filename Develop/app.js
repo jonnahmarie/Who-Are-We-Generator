@@ -15,6 +15,7 @@ const render = require("./lib/htmlRenderer");
 // and to create objects for each team member (using the correct classes as blueprints!)
 const teamMembers = [];
 const teamNameArr = [];
+const idArr = [];
 
 const teamNames = () => {
     inquirer.prompt([
@@ -56,6 +57,9 @@ const addManager = () => {
             validate: answer => {
                 const idChr = answer.match(/^[1-9]\d*$/);
                 if (idChr) {
+                    if (idArr.includes(answer)) {
+                        return "Please enter a unique ID #"
+                    }
                     return true
                 }
                 return "Please enter a number greater than 0."
@@ -88,6 +92,7 @@ const addManager = () => {
     ]).then(answer => {
         const manager = new Manager(answer.name, answer.id, answer.email, answer.officeNumber);
         teamMembers.push(manager);
+        idArr.push(answer.id);
         addEmployees();
     })
 };
@@ -134,6 +139,9 @@ const addEngineer = () => {
             validate: answer => {
                 const idChr = answer.match(/^[1-9]\d*$/);
                 if (idChr) {
+                    if (idArr.includes(answer)) {
+                        return "Please enter a unique ID #"
+                    }
                     return true
                 }
                 return "Please enter a number greater than 0."
@@ -165,6 +173,7 @@ const addEngineer = () => {
     ]).then(answer => {
         const engineer = new Engineer(answer.name, answer.id, answer.email, answer.github);
         teamMembers.push(engineer);
+        idArr.push(answer.id);
         addEmployees();
     })
 };
@@ -189,6 +198,9 @@ const addIntern = () => {
             validate: answer => {
                 const idChr = answer.match(/^[1-9]\d*$/);
                 if (idChr) {
+                    if (idArr.includes(answer)) {
+                        return "Please enter a unique ID #"
+                    }
                     return true
                 }
                 return "Please enter a number greater than 0."
@@ -220,6 +232,7 @@ const addIntern = () => {
     ]).then(answer => {
         const intern = new Intern(answer.name, answer.id, answer.email, answer.school);
         teamMembers.push(intern);
+        idArr.push(answer.id);
         addEmployees();
     })
 };

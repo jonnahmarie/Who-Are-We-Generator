@@ -1,0 +1,41 @@
+body {
+    background: url("../assets/honeycomb.jpg") repeat;
+    background-size: 1000px 800px;
+}
+
+h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 86px;
+}
+
+h2 {
+    color: #fff;
+}
+
+ul, li {
+    color: #34252f;
+}
+
+a, a:link, a:active {
+    color: #3b5249;
+    font-weight: bold;
+}
+
+.team-heading {
+    background-color: #519872;
+    color: #fff;
+}
+
+.card-header {
+    background-color: #3b5249;
+    color: #bec5ad;
+    text-align: center;
+}
+
+.card-body {
+    background-color: #a4b494;
+}
+
+.employee-card {
+    margin-left: 20px;
+}
