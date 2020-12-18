@@ -228,8 +228,11 @@ const addIntern = () => {
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
 
-const getTeam = () => {
-    return fs.writeFileSync (outputPath, render(teamMembers))
+const getTeam = async() => {
+    fs.writeFile(`./output/${teamNameArr[0]}.html`, render(teamMembers), (err) => {
+        if (err) throw err
+        console.log("The profiles have been generated.");
+    })
 };
 
 teamNames();
@@ -240,14 +243,6 @@ teamNames();
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
 
-const teamOutput = async() => {
-    fs.writeFile(`./output/${teamNameArr[0]}.html`, render(teamMembers), (err) => {
-        if (err) throw err
-        console.log("The profiles have been generated.");
-    })
-};
-
-teamOutput();
 
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
